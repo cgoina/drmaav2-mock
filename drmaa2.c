@@ -596,7 +596,7 @@ char *str_replace(char *orig, char *rep, char *with) {
 
 
 drmaa2_jarray drmaa2_jsession_run_bulk_jobs(const drmaa2_jsession js, const drmaa2_jtemplate jt, 
-    unsigned long begin_index, unsigned long end_index, unsigned long step, unsigned long max_parallel) {
+    long long begin_index, long long end_index, long long step, long long max_parallel) {
     if (end_index < begin_index) {
         drmaa2_lasterror_v = DRMAA2_INVALID_ARGUMENT;
         drmaa2_lasterror_text_v = "The beginIndex value must be less than or equal to endIndex.";

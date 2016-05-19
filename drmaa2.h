@@ -241,7 +241,8 @@ typedef struct {
   drmaa2_dict        stageInFiles;        
   drmaa2_dict        stageOutFiles;        
   drmaa2_dict        resourceLimits;      
-  drmaa2_string      accountingId;          
+  drmaa2_string      accountingId;
+  void*              implementationSpecific;
 } drmaa2_jtemplate_s;
 typedef drmaa2_jtemplate_s * drmaa2_jtemplate;
 
@@ -377,10 +378,10 @@ drmaa2_j            drmaa2_jsession_run_job             (const drmaa2_jsession j
                                                          const drmaa2_jtemplate jt);
 drmaa2_jarray       drmaa2_jsession_run_bulk_jobs       (const drmaa2_jsession js, 
                                                          const drmaa2_jtemplate jt, 
-                                                         unsigned long begin_index, 
-                                                         unsigned long end_index, 
-                                                         unsigned long step, 
-                                                         unsigned long max_parallel);
+                                                         long long begin_index, 
+                                                         long long end_index, 
+                                                         long long step, 
+                                                         long long max_parallel);
 drmaa2_j            drmaa2_jsession_wait_any_started    (const drmaa2_jsession js, 
                                                          const drmaa2_j_list l, 
                                                          const time_t timeout);
@@ -427,5 +428,21 @@ drmaa2_error        drmaa2_destroy_rsession             (const char * session_na
 drmaa2_string_list  drmaa2_get_jsession_names           (void);
 drmaa2_string_list  drmaa2_get_rsession_names           (void);
 drmaa2_error        drmaa2_register_event_notification  (const drmaa2_callback callback);
+
+/* engine specific definitions */
+
+typedef struct drmaa2_j_s
+{
+    drmaa2_string id;
+    drmaa2_string session_name;
+} drmaa2_j_s;
+
+typedef struct drmaa2_jarray_s
+{
+    drmaa2_string id;
+    drmaa2_string session_name;
+    drmaa2_j_list job_list;              /* Contains the list of all jobs belonging to the array job. */
+} drmaa2_jarray_s;
+
 
 #endif
