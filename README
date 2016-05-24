@@ -1,9 +1,7 @@
 Welcome !
 =========
 
-This is Peter Troeger's (https://github.com/troeger) reference implementation of the DRMAAv2 C language binding
-with some changes in the headers to make it compatible with univa's version so that I can compile drmaa2.go version
-on Mac OS.
+This is Peter Troeger's (https://github.com/troeger) reference implementation of the DRMAAv2 C language binding with some changes in the headers to make it compatible with univa's version so that I can compile drmaa2.go version on Mac OS.
 
 If you don't know what DRMAA is, please consult http://www.drmaa.org.
 
