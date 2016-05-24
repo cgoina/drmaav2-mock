@@ -1,7 +1,10 @@
 Welcome !
 =========
 
-This is the reference implementation of the DRMAAv2 C language binding. 
+This is [Peter Troeger](https://github.com/troeger) reference implementation of the DRMAAv2 C language binding
+with some changes in the header to make them compatible with univa's version so that I can compile drmaa2.go version
+on Mac OS.
+
 If you don't know what DRMAA is, please consult http://www.drmaa.org.
 
 The code base is maintained by members of the Open Grid Forum (OGF) DRMAA group. 
